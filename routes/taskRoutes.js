@@ -6,7 +6,7 @@ const router = express.Router();
 // GET all duas
 router.get("/", async (req, res) => {
   try {
-    const duaList = await Dua.find({});
+    const duaList = await Dua.find({}).sort({ _id: -1 });
     res.status(200).json({ message: "Dua list retrieved", duaList });
   } catch (error) {
     res.status(500).json({ message: error.message });
